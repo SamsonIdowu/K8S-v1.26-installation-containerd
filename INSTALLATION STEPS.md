@@ -102,6 +102,18 @@ sudo echo deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://apt.kuber
 
 ## Step d: Reboot the VM
 
+## NOTE: Before running step e, enable IP forwarding by changing the value of *ip_forward* parameter from 0 to 1 and enable the *bridge-nf-call-iptables* using the below commands:
+
+```bash
+sudo sysctl net.ipv4.ip_forward=1 # enables IP forwarding.
+sysctl net.ipv4.ip_forward # this command verifies that the parameter is now set to 1.
+
+sudo modprobe br_netfilter # loads the necessary kernel modules.
+sudo sysctl net.bridge.bridge-nf-call-iptables=1 # sets the "bridge-nf-call-iptables" parameter to 1.
+cat /proc/sys/net/bridge/bridge-nf-call-iptables # this command verifies that the parameter is now set to 1.
+```
+*These settings are required for kubernetes networking to work properly.*
+
 ## Step e: Run kubeadm init and setup the control plane
 ```bash
   sudo kubeadm init
