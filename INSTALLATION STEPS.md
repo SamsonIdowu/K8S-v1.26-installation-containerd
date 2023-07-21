@@ -136,3 +136,5 @@ Step h : Reboot the VM
 Step i : Run kubeadm join command  [ Get the join command from master node ]
 ```
 #### INSTALLATION COMPLETE
+
+To join nodes to the cluster subsequently, use the following [resource](https://computingforgeeks.com/join-new-kubernetes-worker-node-to-existing-cluster/).
