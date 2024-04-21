@@ -31,7 +31,7 @@ Step 4 : Configure containerd
 Step 5 : Start containerd service
 ```
 
-## Step 1 : Download & unpack containerd package
+### Step 1 : Download & unpack containerd package
 
 Containerd versions can be found in this location :  https://github.com/containerd/containerd/releases
 
@@ -44,7 +44,7 @@ wget https://github.com/containerd/containerd/releases/download/v1.6.14/containe
 sudo tar Cxzvf /usr/local containerd-1.6.14-linux-amd64.tar.gz
 ```
 
-## Step 2 : Install runc
+### Step 2 : Install runc
 
 Runc is a standardized runtime for spawning and running containers on Linux according to the OCI specification
 ```bash
@@ -52,7 +52,7 @@ wget https://github.com/opencontainers/runc/releases/download/v1.1.3/runc.amd64
 sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
 
-## Step 3: Download and install CNI plugins :
+### Step 3: Download and install CNI plugins :
 
 ```bash
 wget https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz
@@ -60,7 +60,7 @@ sudo mkdir -p /opt/cni/bin
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
 ```
 
-## Step 4: Configure containerd
+### Step 4: Configure containerd
 
 #### Create a containerd directory for the configuration file
 #### config.toml is the default configuration file for containerd
@@ -73,7 +73,7 @@ sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/c
 sudo curl -L https://raw.githubusercontent.com/containerd/containerd/main/containerd.service -o /etc/systemd/system/containerd.service
 ```
 
-## Step 5: Start containerd service
+### Step 5: Start containerd service
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
