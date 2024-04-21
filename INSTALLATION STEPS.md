@@ -79,8 +79,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now containerd
 sudo systemctl status containerd    
 ```
-
-# To come out of the promot , press q
+##### To come out of the prompt , press q
 
 ## Step c : kubelet,kubectl,kubeadm installation
 
